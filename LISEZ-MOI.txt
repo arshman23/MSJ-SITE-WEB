@@ -1,0 +1,35 @@
+SITE INTERNET MSJ — TROIS RUBRIQUES
+==================================
+
+CONTENU
+- index.html : site web complet, responsive, avec onglets
+- assets/affiche-msj-expert.jpg : affiche fournie
+
+NAVIGATION
+- MSJ EXPERT : page d'accueil et affiche cliquable pour agrandir
+- MSJ ASSURANCE : page de présentation
+- MSJ DOMICILIATION : page de présentation
+
+COMMENT L'OUVRIR
+Double-cliquez sur index.html dans le dossier extrait.
+L'affiche doit rester dans le sous-dossier assets/.
+
+COMMENT LE METTRE EN LIGNE
+Envoyez index.html et le dossier assets/ sur votre hébergement web.
+Les trois onglets fonctionnent sans installation complémentaire.
+
+CONTACT
+Les liens de contact ouvrent la messagerie du visiteur vers
+cabinet@msjexpert.fr. Aucun formulaire ni paiement en ligne
+n'est mis en place.
+
+A CONFIRMER AVANT PUBLICATION
+1. Validation des informations et tarifs de l'affiche.
+2. Texte définitif, garanties et tarifs MSJ ASSURANCE.
+3. Adresse de domiciliation agréée, modalités et tarifs
+   MSJ DOMICILIATION.
+4. Mentions légales, politique de confidentialité, SIREN/SIRET,
+   conditions particulières si nécessaires.
+5. Vérifier que cabinet@msjexpert.fr et www.msjexpert.fr sont exacts.
+
+Le design, le contenu et les couleurs peuvent être personnalisés.

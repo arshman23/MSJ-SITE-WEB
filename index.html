@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d3024">
+  <meta name="description" content="MSJ EXPERT vous accompagne dans la création et le suivi de votre entreprise. Retrouvez aussi MSJ ASSURANCE et MSJ DOMICILIATION.">
+  <title>MSJ EXPERT — Entreprendre simplement, en toute confiance</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%230d3024'/%3E%3Cpath d='M14 45 34 15 50 15 29 45Z' fill='%23fffdf4'/%3E%3Cpath d='M29 44Q33 25 52 26Q52 44 29 44Z' fill='%23b2b77c'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --forest: #0d3024;
+      --forest-deep: #09241b;
+      --forest-mid: #2f5642;
+      --sage: #e6eadf;
+      --mint: #f1f3eb;
+      --cream: #f9f7f1;
+      --white: #fff;
+      --ink: #1e2d25;
+      --muted: #627068;
+      --gold: #b69a51;
+      --gold-soft: #ece5d1;
+      --border: #e4e8de;
+      --serif: Georgia, 'Times New Roman', serif;
+      --sans: 'Segoe UI', Arial, Helvetica, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); font-family: var(--sans); background: var(--cream); -webkit-font-smoothing: antialiased; }
+    body.dialog-open { overflow: hidden; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a { color: inherit; }
+    button { font: inherit; }
+    button:focus-visible, a:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+    [hidden] { display: none !important; }
+    .container { width: min(1180px, calc(100% - 64px)); margin-inline: auto; }
+    .skip-link { position: absolute; left: 16px; top: -120px; z-index: 60; padding: 12px; background: var(--white); }
+    .skip-link:focus { top: 14px; }
+    .top-strip { background: var(--forest); color: #e9ede4; height: 34px; display: flex; align-items: center; }
+    .top-strip-inner { display: flex; justify-content: space-between; font-size: 10px; text-transform: uppercase; letter-spacing: .22em; }
+    .top-strip-inner span:last-child { color: #c4cdbf; }
+    .header { position: sticky; top: 0; z-index: 30; background: rgba(249,247,241,.96); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid rgba(31,72,51,.10); }
+    .header-inner { min-height: 93px; display: flex; align-items: center; gap: 40px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+    .brand-mark { width: 48px; height: 50px; }
+    .brand-title { display: block; color: var(--forest); font: 29px/.85 var(--serif); letter-spacing: -.045em; }
+    .brand-caption { display: block; font-size: 9px; letter-spacing: .25em; color: #475748; margin-top: 9px; font-weight: 700; }
+    .nav { margin-left: auto; display: flex; align-self: stretch; gap: 24px; }
+    .nav-link { position: relative; display: inline-flex; align-items: center; white-space: nowrap; text-decoration: none; color: #57635b; font-size: 12px; letter-spacing: .055em; font-weight: 700; transition: color .2s; }
+    .nav-link:hover, .nav-link.active { color: var(--forest); }
+    .nav-link.active::after { content: ''; height: 3px; background: var(--gold); position: absolute; bottom: 0; left: 0; right: 0; border-radius: 4px 4px 0 0; }
+    .header-cta { margin-left: 2px; color: #fff; background: var(--forest); text-decoration: none; font-size: 12px; font-weight: 700; padding: 15px 20px; border-radius: 5px; white-space: nowrap; transition: transform .2s, background .2s; }
+    .header-cta:hover { transform: translateY(-2px); background: var(--forest-mid); }
+    .panel { animation: fade .32s ease both; }
+    @keyframes fade { from { opacity: .2; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .eyebrow { display: inline-flex; gap: 14px; align-items: center; color: var(--forest-mid); text-transform: uppercase; letter-spacing: .22em; font-size: 11px; line-height: 1.5; font-weight: 800; }
+    .eyebrow::before { content: ''; width: 33px; height: 2px; background: var(--gold); flex: none; }
+    .hero { position: relative; isolation: isolate; overflow: hidden; background: linear-gradient(130deg, #faf9f4 4%, #f3f5ed 80%); }
+    .hero::before { content: ''; position: absolute; z-index: -1; width: 820px; height: 820px; top: -335px; right: -320px; border-radius: 50%; background: radial-gradient(circle, rgba(184,199,164,.34), rgba(184,199,164,0) 70%); }
+    .hero-grid { padding-block: 74px 87px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .86fr); align-items: center; gap: clamp(32px, 5vw, 86px); }
+    h1, h2, h3, p { margin-top: 0; }
+    .hero h1, .inner-hero h1 { margin: 23px 0 22px; color: var(--forest-deep); font-family: var(--serif); font-weight: 400; letter-spacing: -.052em; font-size: clamp(46px, 5.15vw, 75px); line-height: 1.105; }
+    .hero h1 em, .inner-hero h1 em { color: #60795d; font-weight: 400; font-style: normal; }
+    .lead { color: #55665b; font-size: 17px; line-height: 1.8; max-width: 505px; margin-bottom: 32px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .btn { display: inline-flex; gap: 12px; align-items: center; justify-content: center; border-radius: 6px; padding: 17px 23px; line-height: 1.2; text-decoration: none; border: 1px solid transparent; font-size: 13px; font-weight: 750; cursor: pointer; transition: transform .2s, background .2s, border-color .2s; }
+    .btn:hover { transform: translateY(-3px); }
+    .btn-primary { background: var(--forest); color: #fff; }
+    .btn-primary:hover { background: #1e4936; }
+    .btn-secondary { background: rgba(255,255,255,.55); color: var(--forest); border-color: #bdc8b9; }
+    .btn-secondary:hover { background: #fff; border-color: var(--forest-mid); }
+    .arrow-icon { font-size: 18px; line-height: 0; }
+    .trust-line { display: flex; align-items: center; gap: 13px; margin-top: 39px; color: var(--forest-mid); font-size: 12px; font-weight: 650; }
+    .trust-dots { display: flex; }
+    .trust-dots span { width: 25px; height: 25px; border-radius: 50%; border: 2px solid #fff; background: #c8d5b9; margin-left: -5px; }
+    .trust-dots span:first-child { margin-left: 0; background: #284d38; }
+    .trust-dots span:nth-child(2) { background: #779874; }
+    .hero-media { position: relative; width: min(100%, 455px); justify-self: end; padding: 11px; background: rgba(255,255,255,.64); border: 1px solid rgba(20,69,47,.09); box-shadow: 0 38px 80px rgba(30,51,34,.16); border-radius: 12px; transform: rotate(1deg); }
+    .hero-media::before { content: ''; position: absolute; height: 87%; width: 80%; background: #dae3d4; border-radius: 16px; transform: rotate(7deg); z-index: -1; right: -17px; top: 20px; }
+    .poster-image { width: 100%; height: auto; display: block; border-radius: 5px; }
+    .poster-zoom { position: absolute; bottom: 26px; right: 26px; border: 1px solid rgba(255,255,255,.58); box-shadow: 0 6px 24px #12302248; cursor: pointer; border-radius: 40px; padding: 12px 17px; background: var(--forest); color: #fff; font-weight: 700; font-size: 12px; }
+    .poster-zoom:hover { background: #2a573e; }
+    .floating-seal { position: absolute; left: -54px; top: 48px; display: flex; align-items: center; gap: 10px; background: #fff; border: 1px solid #e4eadb; box-shadow: 0 10px 40px #102e241c; padding: 12px 16px; border-radius: 8px; transform: rotate(-1deg); }
+    .floating-seal strong { color: var(--forest); font-size: 26px; line-height: 1; }
+    .floating-seal span { font-size: 10px; line-height: 1.35; color: #556257; font-weight: 750; letter-spacing: .055em; text-transform: uppercase; }
+    .values-strip { background: var(--forest); }
+    .values-grid { display: grid; grid-template-columns: repeat(4,1fr); }
+    .value { padding: 23px 19px; border-right: 1px solid #ffffff30; display: flex; align-items: center; gap: 13px; color: #fff; }
+    .value:first-child { padding-left: 0; }
+    .value:last-child { border: none; }
+    .value-icon { width: 29px; height: 29px; color: #e2c787; flex: none; }
+    .value span { text-transform: uppercase; font-size: 10px; font-weight: 750; letter-spacing: .12em; line-height: 1.6; }
+    .section { padding-block: 94px; }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 32px; }
+    .section-heading h2, .contact-area h2, .details-heading h2 { font: 400 clamp(37px, 4vw, 54px)/1.15 var(--serif); color: var(--forest); letter-spacing: -.045em; margin: 15px 0 0; }
+    .section-heading p { color: var(--muted); line-height: 1.7; margin: 0; max-width: 340px; font-size: 14px; }
+    .offer-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 19px; }
+    .offer { position: relative; overflow: hidden; border: 1px solid #e0e5db; background: #fff; border-radius: 12px; padding: 27px 26px 25px; box-shadow: 0 7px 20px rgba(26,54,31,.035); }
+    .offer.featured { background: #eef2e8; border-color: #d7e0d0; }
+    .offer-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-bottom: 20px; border-bottom: 1px solid #e3e7df; }
+    .offer-number { color: #96a498; font: italic 30px var(--serif); }
+    .offer-pill { border: 1px solid #cdd8c9; background: #ffffff9c; color: var(--forest-mid); padding: 7px 10px; border-radius: 30px; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .09em; }
+    .offer h3 { margin: 22px 0 8px; font: 400 28px/1.12 var(--serif); color: var(--forest); letter-spacing: -.025em; min-height: 64px; }
+    .price { font: 400 34px/1.15 var(--serif); color: var(--forest); margin: 15px 0 4px; white-space: nowrap; }
+    .price small { font: 650 12px var(--sans); }
+    .subprice { font-size: 11px; color: var(--muted); margin-bottom: 20px; min-height: 28px; }
+    .offer ul { margin: 0; padding: 0; list-style: none; min-height: 108px; }
+    .offer li { display: flex; gap: 11px; align-items: start; margin-bottom: 14px; color: #4d5c51; font-size: 12px; line-height: 1.55; }
+    .tick { width: 17px; height: 17px; flex: none; border-radius: 50%; color: white; background: #426849; font-size: 12px; line-height: 17px; text-align: center; margin-top: 1px; }
+    .offer-bottom { margin-top: 25px; border-top: 1px solid #e5e9e1; padding-top: 18px; }
+    .offer-bottom a { display: inline-flex; gap: 10px; align-items: center; color: var(--forest); text-decoration: none; font-size: 12px; font-weight: 800; }
+    .offer-bottom a:hover { text-decoration: underline; }
+    .fineprint { margin: 20px 0 0; color: #728077; font-size: 11px; line-height: 1.65; }
+    .quote-section { padding: 80px 0; background: #e9eee3; overflow: hidden; }
+    .quote-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: center; }
+    .quote-decor { height: 240px; border: 1px solid #bfcebb; background: radial-gradient(circle at 70% 40%, #f6f8ef, transparent 55%), #dce5d8; border-radius: 180px 8px 180px 8px; display: flex; align-items: center; justify-content: center; position: relative; }
+    .quote-decor span { color: #2e5b40; font: italic 100px var(--serif); }
+    .quote-grid blockquote { margin: 0; color: var(--forest); font: 400 clamp(28px, 3.3vw, 43px)/1.3 var(--serif); letter-spacing: -.032em; }
+    .quote-grid blockquote small { display: block; font: 750 11px var(--sans); letter-spacing: .24em; text-transform: uppercase; color: var(--forest-mid); margin-top: 25px; }
+    .contact-area { background: var(--forest-deep); color: white; padding: 76px 0; position: relative; overflow: hidden; }
+    .contact-area::after { content: ''; width: 470px; height: 470px; border: 1px solid #ffffff2b; border-radius: 50%; position: absolute; right: -160px; bottom: -310px; box-shadow: 0 0 0 75px #ffffff06,0 0 0 150px #ffffff06; pointer-events: none; }
+    .contact-grid { display: flex; justify-content: space-between; align-items: center; gap: 30px; position: relative; z-index: 1; }
+    .contact-area .eyebrow { color: #d8cb9b; }
+    .contact-area h2 { color: #fff; margin: 14px 0 14px; }
+    .contact-area p { color: #c8d6ca; margin: 0; line-height: 1.7; font-size: 14px; }
+    .contact-area .btn { background: #f9f7f1; color: var(--forest); }
+    .contact-area .btn:hover { background: var(--sage); }
+    .footer { background: #071d16; color: #d4dcd2; }
+    .footer-top { padding: 55px 0 47px; display: grid; grid-template-columns: 1.25fr 1fr 1fr; gap: 44px; }
+    .footer .brand-title { color: #fff; }
+    .footer .brand-caption { color: #a7b7aa; }
+    .footer-description { font-size: 12px; line-height: 1.8; max-width: 310px; color: #b8c5ba; margin: 21px 0 0; }
+    .footer h3 { font-size: 11px; letter-spacing: .17em; font-weight: 800; text-transform: uppercase; color: #dec58b; margin: 8px 0 21px; }
+    .footer-links { display: grid; gap: 14px; }
+    .footer-links a, .footer-links span { font-size: 12px; color: #c7d2c8; line-height: 1.6; text-decoration: none; }
+    .footer-links a:hover { color: #fff; text-decoration: underline; }
+    .footer-bottom { border-top: 1px solid #ffffff1a; padding: 21px 0; color: #94a79b; font-size: 11px; display: flex; justify-content: space-between; gap: 16px; }
+    .inner-hero { background: linear-gradient(128deg, #f7f9f3, #e7ede2); padding: 86px 0 92px; overflow: hidden; }
+    .inner-grid { display: grid; grid-template-columns: 1fr .9fr; gap: 70px; align-items: center; }
+    .inner-hero h1 { max-width: 700px; }
+    .inner-hero .lead { max-width: 540px; }
+    .artwork { min-height: 425px; border-radius: 220px 220px 14px 14px; background: linear-gradient(145deg, #d7e2d1, #c1d3c0); display: grid; place-items: center; position: relative; overflow: hidden; box-shadow: inset 0 0 0 1px #ffffffa0; }
+    .artwork::before, .artwork::after { content: ''; width: 365px; height: 365px; border: 1px solid #ffffff8c; border-radius: 50%; position: absolute; }
+    .artwork::after { width: 290px; height: 290px; }
+    .artwork .art-icon { position: relative; z-index: 2; width: 190px; height: 190px; filter: drop-shadow(0 18px 20px #092d2b25); }
+    .art-tag { position: absolute; z-index: 3; bottom: 24px; left: 24px; background: #ffffffd9; color: var(--forest); padding: 13px 18px; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; border-radius: 4px; font-weight: 800; }
+    .domiciliation-art { background: linear-gradient(145deg, #ede8d7, #c9d5c0); }
+    .details-heading { max-width: 780px; margin: 0 0 36px; }
+    .details-heading p { color: var(--muted); margin: 16px 0 0; line-height: 1.75; }
+    .details-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .detail { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 30px; }
+    .detail-num { display: inline-block; font: italic 30px var(--serif); color: var(--gold); margin-bottom: 21px; }
+    .detail h3 { font: 400 27px/1.25 var(--serif); letter-spacing: -.02em; margin: 0 0 12px; color: var(--forest); }
+    .detail p { color: var(--muted); font-size: 13px; line-height: 1.8; margin: 0; }
+    .status-note { display: flex; align-items: start; gap: 12px; background: #f0f3e8; border-left: 3px solid var(--gold); margin-top: 25px; padding: 17px 19px; color: #526351; font-size: 12px; line-height: 1.65; }
+    .status-note strong { color: var(--forest); }
+    dialog { border: none; border-radius: 12px; padding: 0; width: min(910px, calc(100vw - 28px)); max-height: 93vh; overflow: hidden; background: #eef1e9; box-shadow: 0 35px 130px #0008; }
+    dialog::backdrop { background: #00180ecc; backdrop-filter: blur(7px); }
+    .dialog-header { display: flex; justify-content: space-between; align-items: center; gap: 15px; padding: 12px 17px; background: white; color: var(--forest); font-size: 13px; font-weight: 700; }
+    .dialog-close { font: 700 22px var(--sans); border: 0; background: #eef2e9; color: var(--forest); border-radius: 50%; height: 38px; width: 38px; cursor: pointer; }
+    .dialog-scroll { max-height: calc(93vh - 62px); overflow: auto; text-align: center; padding: 10px; }
+    .dialog-scroll img { display: block; width: 100%; max-width: 800px; height: auto; margin-inline: auto; }
+    @media (max-width: 1050px) {
+      .header-inner { gap: 18px; }
+      .nav { gap: 15px; }
+      .header-cta { padding-inline: 14px; }
+      .hero-grid { gap: 36px; }
+      .hero h1 { font-size: clamp(43px, 5.6vw, 64px); }
+      .floating-seal { left: -25px; }
+      .value { padding-inline: 12px; gap: 8px; }
+      .value span { font-size: 9px; }
+    }
+    @media (max-width: 850px) {
+      .container { width: min(100% - 36px, 690px); }
+      .top-strip { display: none; }
+      .header-inner { flex-wrap: wrap; min-height: 0; padding-top: 13px; justify-content: space-between; gap: 6px; }
+      .brand-mark { width: 39px; height: 42px; }
+      .brand-title { font-size: 25px; }
+      .brand-caption { font-size: 8px; }
+      .header-cta { padding: 12px 15px; }
+      .nav { order: 3; width: 100%; margin-left: 0; overflow-x: auto; gap: 28px; align-self: initial; scrollbar-width: none; }
+      .nav::-webkit-scrollbar { display: none; }
+      .nav-link { padding: 17px 0; font-size: 11px; }
+      .hero-grid, .inner-grid { grid-template-columns: 1fr; gap: 42px; }
+      .hero-grid { padding-block: 55px 66px; }
+      .hero h1, .inner-hero h1 { max-width: 660px; font-size: clamp(45px, 8vw, 63px); }
+      .hero-media { justify-self: center; width: min(100% - 30px, 455px); }
+      .floating-seal { left: -15px; }
+      .values-grid { grid-template-columns: repeat(2,1fr); }
+      .value { border-bottom: 1px solid #ffffff30; padding: 18px 12px; }
+      .value:first-child { padding-left: 12px; }
+      .value:nth-child(2) { border-right: 0; }
+      .value:nth-child(3), .value:nth-child(4) { border-bottom: none; }
+      .offer-grid { grid-template-columns: 1fr 1fr; }
+      .offer:last-child { grid-column: 1 / -1; }
+      .offer h3 { min-height: initial; }
+      .quote-grid { gap: 40px; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .footer-top > div:first-child { grid-column: 1 / -1; }
+      .artwork { max-width: 540px; width: 100%; margin: auto; }
+      .inner-hero { padding: 62px 0; }
+    }
+    @media (max-width: 570px) {
+      .container { width: calc(100% - 32px); }
+      .brand { gap: 7px; }
+      .brand-title { font-size: 22px; }
+      .brand-mark { width: 36px; height: 37px; }
+      .brand-caption { font-size: 7px; letter-spacing: .2em; margin-top: 7px; }
+      .header-cta { font-size: 10px; padding: 12px 11px; }
+      .nav { gap: 23px; }
+      .nav-link { font-size: 10px; }
+      .hero-grid { padding-block: 45px 57px; }
+      .hero h1, .inner-hero h1 { font-size: clamp(41px, 11vw, 53px); }
+      .lead { font-size: 15px; line-height: 1.75; margin-bottom: 25px; }
+      .eyebrow { font-size: 9px; letter-spacing: .17em; }
+      .eyebrow::before { width: 25px; }
+      .btn { padding: 15px 17px; font-size: 12px; }
+      .trust-line { font-size: 11px; margin-top: 29px; }
+      .hero-media { width: calc(100% - 20px); }
+      .floating-seal { left: -17px; top: 24px; padding: 9px 12px; }
+      .floating-seal strong { font-size: 21px; }
+      .floating-seal span { font-size: 8px; }
+      .poster-zoom { bottom: 20px; right: 20px; font-size: 11px; padding: 10px 13px; }
+      .value-icon { width: 22px; height: 22px; }
+      .value { padding: 16px 5px; gap: 8px; }
+      .value:first-child { padding-left: 5px; }
+      .value span { font-size: 8px; letter-spacing: .07em; }
+      .section { padding-block: 65px; }
+      .section-heading { display: block; }
+      .section-heading p { margin-top: 15px; }
+      .section-heading h2, .contact-area h2, .details-heading h2 { font-size: 38px; }
+      .offer-grid, .details-grid { grid-template-columns: 1fr; }
+      .offer:last-child { grid-column: auto; }
+      .offer { padding: 26px; }
+      .offer ul { min-height: initial; }
+      .quote-section { padding: 58px 0; }
+      .quote-grid { grid-template-columns: 1fr; gap: 26px; }
+      .quote-decor { height: 150px; border-radius: 150px 8px; }
+      .quote-decor span { font-size: 70px; }
+      .quote-grid blockquote { font-size: 31px; }
+      .contact-area { padding: 60px 0; }
+      .contact-grid { align-items: start; flex-direction: column; }
+      .footer-top { grid-template-columns: 1fr; gap: 31px; padding: 47px 0; }
+      .footer-top > div:first-child { grid-column: auto; }
+      .footer-bottom { flex-direction: column; }
+      .inner-hero { padding: 46px 0 60px; }
+      .artwork { min-height: 300px; border-radius: 165px 165px 12px 12px; }
+      .artwork .art-icon { height: 135px; width: 135px; }
+      .artwork::before { width: 270px; height: 270px; }
+      .artwork::after { width: 200px; height: 200px; }
+      .art-tag { font-size: 9px; bottom: 17px; left: 17px; }
+      .detail { padding: 25px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Aller au contenu</a>
+<div class="top-strip"><div class="container top-strip-inner"><span>Votre projet, notre expertise</span><span>Création d'entreprise • Accompagnement • Conseil</span></div></div>
+<header class="header">
+  <div class="container header-inner">
+    <a class="brand" href="#expert" data-tab="expert" aria-label="MSJ EXPERT — Accueil">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M5 11 26 13 21 30Z" fill="#0d3024"/><path d="M15 31 8 20 26 24Z" fill="#315d43"/><path d="m25 10 15 4-14 13-7-1Z" fill="#183c2b"/><path d="m42 13 14-4-25 36-22 8Z" fill="#0d3024"/><path d="M31 49Q34 27 57 24Q56 51 31 49Z" fill="#9eac79"/><path d="M28 53Q39 38 52 30" fill="none" stroke="#f4eee0" stroke-width="1.6"/></svg>
+      <span><span class="brand-title">MSJ EXPERT</span><span class="brand-caption">CRÉATION D'ENTREPRISE</span></span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="nav-link active" href="#expert" data-tab="expert" aria-current="page">MSJ EXPERT</a>
+      <a class="nav-link" href="#assurance" data-tab="assurance">MSJ ASSURANCE</a>
+      <a class="nav-link" href="#domiciliation" data-tab="domiciliation">MSJ DOMICILIATION</a>
+    </nav>
+    <a class="header-cta" href="mailto:cabinet@msjexpert.fr?subject=Demande%20de%20devis%20MSJ">Devis gratuit ↗</a>
+  </div>
+</header>
+<main id="main-content">
+  <section class="panel" id="expert" data-panel="expert" aria-label="Accueil MSJ EXPERT">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">MSJ EXPERT — Création d'entreprise</span>
+          <h1>Entreprendre <em>simplement,</em> en toute confiance.</h1>
+          <p class="lead">De la création au suivi de votre entreprise, MSJ EXPERT vous accompagne avec des solutions simples, rapides et sécurisées.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:cabinet@msjexpert.fr?subject=Demande%20de%20devis%20-%20MSJ%20EXPERT">Demander un devis <span class="arrow-icon" aria-hidden="true">↗</span></a>
+            <a class="btn btn-secondary" href="#offres">Découvrir nos offres <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="trust-line"><div class="trust-dots" aria-hidden="true"><span></span><span></span><span></span></div><span>Un accompagnement personnalisé à chaque étape</span></div>
+        </div>
+        <div class="hero-media">
+          <div class="floating-seal"><strong>+175</strong><span>Sociétés immatriculées<br>en 24 mois*</span></div>
+          <img class="poster-image" src="assets/affiche-msj-expert.jpg" alt="Affiche MSJ EXPERT : création de société, suivi complet d'entreprise, business plan, tarifs et coordonnées" width="1024" height="1536" fetchpriority="high">
+          <button class="poster-zoom" id="open-poster" type="button" aria-label="Ouvrir l'affiche MSJ EXPERT en grand">⊕ &nbsp; Voir l'affiche en grand</button>
+        </div>
+      </div>
+    </section>
+    <div class="values-strip"><div class="container values-grid">
+      <div class="value"><svg class="value-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="16" cy="9" r="5"/><path d="M5 30v-5a11 11 0 0 1 22 0v5"/></svg><span>Conseil<br>personnalisé</span></div>
+      <div class="value"><svg class="value-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 2h12l5 5v23H8zM20 2v6h5M12 14h10M12 19h10M12 24h7"/></svg><span>Démarches<br>simplifiées</span></div>
+      <div class="value"><svg class="value-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M16 2 27 6v8c0 8-5 13-11 16C10 27 5 22 5 14V6z"/><path d="m10 16 4 4 8-9"/></svg><span>Conformité<br>garantie</span></div>
+      <div class="value"><svg class="value-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 27V17h5v10m4 0V12h5v15m4 0V5h5v22"/></svg><span>Suivi durable<br>de votre activité</span></div>
+    </div></div>
+    <section class="section" id="offres">
+      <div class="container">
+        <div class="section-heading"><div><span class="eyebrow">Nos solutions</span><h2>À chaque projet,<br>son accompagnement.</h2></div><p>Retrouvez les trois prestations présentées sur notre affiche. Nous échangeons avec vous pour choisir la formule adaptée à votre situation.</p></div>
+        <div class="offer-grid">
+          <article class="offer"><div class="offer-top"><span class="offer-number">01.</span><span class="offer-pill">Création</span></div><h3>Création<br>de société</h3><p class="price">800 € <small>HT</small></p><p class="subprice">Soit 960 € TTC</p><ul><li><span class="tick">✓</span>Rédaction des statuts</li><li><span class="tick">✓</span>Immatriculation et annonce légale</li><li><span class="tick">✓</span>Accompagnement personnalisé</li></ul><div class="offer-bottom"><a href="mailto:cabinet@msjexpert.fr?subject=MSJ%20EXPERT%20-%20Cr%C3%A9ation%20de%20soci%C3%A9t%C3%A9">Demander un devis <span aria-hidden="true">↗</span></a></div></article>
+          <article class="offer featured"><div class="offer-top"><span class="offer-number">02.</span><span class="offer-pill">Suivi mensuel</span></div><h3>Suivi complet<br>d'entreprise</h3><p class="price">300 € <small>HT / mois</small></p><p class="subprice">Soit 360 € TTC / mois — jusqu'à 5 salariés</p><ul><li><span class="tick">✓</span>Gestion de la paie et du social</li><li><span class="tick">✓</span>Comptabilité dématérialisée</li><li><span class="tick">✓</span>Déclarations fiscales et conseil</li></ul><div class="offer-bottom"><a href="mailto:cabinet@msjexpert.fr?subject=MSJ%20EXPERT%20-%20Suivi%20d%27entreprise">Demander un devis <span aria-hidden="true">↗</span></a></div></article>
+          <article class="offer"><div class="offer-top"><span class="offer-number">03.</span><span class="offer-pill">Stratégie</span></div><h3>Business plan<br>sur 5 ans</h3><p class="price">660 € <small>TTC</small></p><p class="subprice">Bilan prévisionnel de 5 ans</p><ul><li><span class="tick">✓</span>Étude de marché et analyse sectorielle</li><li><span class="tick">✓</span>Prévisions financières sur 5 ans</li><li><span class="tick">✓</span>Argumentaire pour les financeurs</li></ul><div class="offer-bottom"><a href="mailto:cabinet@msjexpert.fr?subject=MSJ%20EXPERT%20-%20Business%20plan">Demander un devis <span aria-hidden="true">↗</span></a></div></article>
+        </div>
+        <p class="fineprint">* Chiffre « +175 » et prestations repris de l'affiche communiquée. Les tarifs et conditions sont à confirmer auprès de MSJ EXPERT.</p>
+      </div>
+    </section>
+    <section class="quote-section"><div class="container quote-grid"><div class="quote-decor" aria-hidden="true"><span>“</span></div><blockquote>Votre énergie doit aller à votre projet. Notre expertise est là pour vous accompagner.<small>Votre projet, notre expertise</small></blockquote></div></section>
+    <section class="contact-area"><div class="container contact-grid"><div><span class="eyebrow">Un projet en tête ?</span><h2>Parlons de votre entreprise.</h2><p>Contactez notre cabinet et présentez-nous votre projet.</p></div><a class="btn" href="mailto:cabinet@msjexpert.fr?subject=Demande%20de%20devis%20-%20MSJ%20EXPERT">Demander un devis gratuit <span aria-hidden="true">↗</span></a></div></section>
+  </section>
+  <section class="panel" id="assurance" data-panel="assurance" aria-label="MSJ ASSURANCE" hidden>
+    <section class="inner-hero"><div class="container inner-grid"><div><span class="eyebrow">Bienvenue chez MSJ ASSURANCE</span><h1>Protéger ce qui <em>compte</em> pour vous.</h1><p class="lead">Découvrez l'univers MSJ ASSURANCE. Parlez-nous de votre activité et de vos besoins pour obtenir des renseignements sur les solutions envisageables.</p><div class="hero-actions"><a class="btn btn-primary" href="mailto:cabinet@msjexpert.fr?subject=Renseignements%20-%20MSJ%20ASSURANCE">Se renseigner <span aria-hidden="true">↗</span></a><a class="btn btn-secondary" href="#assurance-details">En savoir plus ↓</a></div></div><div class="artwork assurance-art" role="img" aria-label="Illustration d'un bouclier, symbole de protection"><svg class="art-icon" viewBox="0 0 200 200" fill="none" aria-hidden="true"><path d="M100 18 168 44V95C168 143 136 169 100 186 64 169 32 143 32 95V44Z" fill="#f9faf4" stroke="#24513b" stroke-width="4"/><path d="M100 40 148 58v36c0 35-20 55-48 70-28-15-48-35-48-70V58Z" fill="#dce9d5"/><path d="m72 100 19 18 37-40" stroke="#27563b" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="art-tag">MSJ ASSURANCE</span></div></div></section>
+    <section class="section" id="assurance-details"><div class="container"><div class="details-heading"><span class="eyebrow">Votre activité, vos besoins</span><h2>Une protection à réfléchir ensemble.</h2><p>Cette page présente MSJ ASSURANCE. Les garanties précises et les conditions seront ajoutées après validation de vos offres.</p></div><div class="details-grid"><article class="detail"><span class="detail-num">01.</span><h3>Parler de vos besoins</h3><p>Présentez votre activité et les enjeux que vous souhaitez couvrir.</p></article><article class="detail"><span class="detail-num">02.</span><h3>Étudier votre situation</h3><p>Identifiez les questions à poser et les garanties utiles à examiner.</p></article><article class="detail"><span class="detail-num">03.</span><h3>Prendre contact</h3><p>Écrivez à MSJ pour connaître les solutions et les modalités disponibles.</p></article></div><div class="status-note"><span aria-hidden="true">✧</span><span><strong>Rubrique personnalisable :</strong> ajoutez ici vos formules d'assurance, partenaires, garanties et tarifs officiels.</span></div></div></section>
+    <section class="contact-area"><div class="container contact-grid"><div><span class="eyebrow">MSJ ASSURANCE</span><h2>Besoin d'un renseignement ?</h2><p>Contactez le cabinet pour échanger sur votre demande.</p></div><a class="btn" href="mailto:cabinet@msjexpert.fr?subject=Demande%20d%27information%20-%20MSJ%20ASSURANCE">Écrire à MSJ ASSURANCE <span aria-hidden="true">↗</span></a></div></section>
+  </section>
+  <section class="panel" id="domiciliation" data-panel="domiciliation" aria-label="MSJ DOMICILIATION" hidden>
+    <section class="inner-hero"><div class="container inner-grid"><div><span class="eyebrow">Bienvenue chez MSJ DOMICILIATION</span><h1>Une adresse pour vos <em>ambitions.</em></h1><p class="lead">Découvrez MSJ DOMICILIATION, la rubrique dédiée aux démarches de domiciliation d'entreprise. Contactez-nous pour connaître les conditions et modalités proposées.</p><div class="hero-actions"><a class="btn btn-primary" href="mailto:cabinet@msjexpert.fr?subject=Renseignements%20-%20MSJ%20DOMICILIATION">Demander des informations <span aria-hidden="true">↗</span></a><a class="btn btn-secondary" href="#domiciliation-details">Découvrir la rubrique ↓</a></div></div><div class="artwork domiciliation-art" role="img" aria-label="Illustration d'un bâtiment représentant une adresse professionnelle"><svg class="art-icon" viewBox="0 0 200 200" fill="none" aria-hidden="true"><path d="M39 177V71l61-35 61 35v106" fill="#f9faf4" stroke="#24513b" stroke-width="4" stroke-linejoin="round"/><path d="M39 80h122" stroke="#24513b" stroke-width="3"/><rect x="60" y="94" width="23" height="26" rx="3" fill="#9caf91"/><rect x="117" y="94" width="23" height="26" rx="3" fill="#9caf91"/><rect x="60" y="133" width="23" height="26" rx="3" fill="#9caf91"/><rect x="105" y="132" width="30" height="45" rx="3" fill="#2c5b41"/><path d="M26 178h148" stroke="#24513b" stroke-width="4" stroke-linecap="round"/><path d="M100 19v-9m-8 8h16" stroke="#24513b" stroke-width="3" stroke-linecap="round"/></svg><span class="art-tag">MSJ DOMICILIATION</span></div></div></section>
+    <section class="section" id="domiciliation-details"><div class="container"><div class="details-heading"><span class="eyebrow">Domiciliation d'entreprise</span><h2>Un point de départ pour votre projet.</h2><p>Les adresses de domiciliation disponibles, les services associés et les tarifs seront précisés une fois vos informations validées.</p></div><div class="details-grid"><article class="detail"><span class="detail-num">01.</span><h3>Présentez votre projet</h3><p>Expliquez votre activité et le type de domiciliation recherché.</p></article><article class="detail"><span class="detail-num">02.</span><h3>Découvrez les modalités</h3><p>Renseignez-vous sur les conditions, les justificatifs et les services éventuels.</p></article><article class="detail"><span class="detail-num">03.</span><h3>Faites votre demande</h3><p>Contactez MSJ DOMICILIATION pour connaître les étapes à suivre.</p></article></div><div class="status-note"><span aria-hidden="true">✧</span><span><strong>Rubrique personnalisable :</strong> ajoutez ici l'adresse de domiciliation agréée, les prestations, les pièces demandées et les tarifs confirmés.</span></div></div></section>
+    <section class="contact-area"><div class="container contact-grid"><div><span class="eyebrow">MSJ DOMICILIATION</span><h2>Prêt à lancer votre activité ?</h2><p>Notre adresse e-mail est à votre disposition pour vos questions.</p></div><a class="btn" href="mailto:cabinet@msjexpert.fr?subject=Demande%20d%27information%20-%20MSJ%20DOMICILIATION">Écrire à MSJ DOMICILIATION <span aria-hidden="true">↗</span></a></div></section>
+  </section>
+</main>
+<footer class="footer"><div class="container footer-top"><div><a class="brand" href="#expert" data-tab="expert" aria-label="Revenir à MSJ EXPERT"><svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M5 11 26 13 21 30Z" fill="#e8edda"/><path d="M15 31 8 20 26 24Z" fill="#7eaa87"/><path d="m25 10 15 4-14 13-7-1Z" fill="#e8edda"/><path d="m42 13 14-4-25 36-22 8Z" fill="#fff"/><path d="M31 49Q34 27 57 24Q56 51 31 49Z" fill="#9eac79"/></svg><span><span class="brand-title">MSJ EXPERT</span><span class="brand-caption">VOTRE PROJET, NOTRE EXPERTISE</span></span></a><p class="footer-description">Création d'entreprise, conseil et accompagnement professionnel.</p></div><div><h3>Nos univers</h3><div class="footer-links"><a href="#expert" data-tab="expert">MSJ EXPERT</a><a href="#assurance" data-tab="assurance">MSJ ASSURANCE</a><a href="#domiciliation" data-tab="domiciliation">MSJ DOMICILIATION</a></div></div><div><h3>Nous contacter</h3><div class="footer-links"><span>9 avenue des Érables<br>95400 Villiers-le-Bel</span><a href="mailto:cabinet@msjexpert.fr">cabinet@msjexpert.fr</a><a href="https://www.msjexpert.fr" target="_blank" rel="noopener noreferrer">www.msjexpert.fr ↗</a></div></div></div><div class="container footer-bottom"><span>© <span id="year">2026</span> MSJ EXPERT — Tous droits réservés.</span><span>Votre projet, notre expertise.</span></div></footer>
+<dialog id="poster-dialog" aria-label="Affiche MSJ EXPERT en grand"><div class="dialog-header"><span>Affiche MSJ EXPERT</span><button class="dialog-close" id="close-poster" aria-label="Fermer l'affiche" type="button">×</button></div><div class="dialog-scroll"><img src="assets/affiche-msj-expert.jpg" alt="Affiche complète de MSJ EXPERT avec l'ensemble des offres et tarifs" width="1024" height="1536"></div></dialog>
+<script>
+  (function () {
+    const panels = Array.from(document.querySelectorAll('[data-panel]'));
+    const tabs = Array.from(document.querySelectorAll('[data-tab]'));
+    const names = {
+      expert: 'MSJ EXPERT — Entreprendre simplement, en toute confiance',
+      assurance: 'MSJ ASSURANCE — Protection de votre activité',
+      domiciliation: 'MSJ DOMICILIATION — Domiciliation d’entreprise'
+    };
+    function showPanel(name, scrollToTop) {
+      if (!names[name]) name = 'expert';
+      panels.forEach(panel => { panel.hidden = panel.dataset.panel !== name; });
+      tabs.forEach(tab => {
+        const selected = tab.dataset.tab === name;
+        tab.classList.toggle('active', selected);
+        if (tab.closest('nav')) {
+          if (selected) tab.setAttribute('aria-current','page');
+          else tab.removeAttribute('aria-current');
+        }
+      });
+      document.title = names[name];
+      if (scrollToTop) window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+    function currentPanelFromHash() {
+      const hash = location.hash.slice(1);
+      return names[hash] ? hash : 'expert';
+    }
+    tabs.forEach(tab => tab.addEventListener('click', e => {
+      e.preventDefault();
+      const name = tab.dataset.tab;
+      history.pushState(null, '', '#' + name);
+      showPanel(name, true);
+    }));
+    window.addEventListener('popstate', () => showPanel(currentPanelFromHash(), false));
+    window.addEventListener('hashchange', () => showPanel(currentPanelFromHash(), false));
+    showPanel(currentPanelFromHash(), false);
+    const modal = document.getElementById('poster-dialog');
+    const openButton = document.getElementById('open-poster');
+    const closeButton = document.getElementById('close-poster');
+    openButton.addEventListener('click', () => {
+      if (typeof modal.showModal === 'function') {
+        modal.showModal();
+        document.body.classList.add('dialog-open');
+      } else window.open('assets/affiche-msj-expert.jpg', '_blank');
+    });
+    closeButton.addEventListener('click', () => modal.close());
+    modal.addEventListener('close', () => document.body.classList.remove('dialog-open'));
+    modal.addEventListener('click', e => { if (e.target === modal) modal.close(); });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  }());
+</script>
+</body>
+</html>

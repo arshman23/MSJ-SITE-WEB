@@ -1,35 +1,31 @@
-SITE INTERNET MSJ — TROIS RUBRIQUES
-==================================
+MSJ GROUP — SITE INTERNET
+========================
 
-CONTENU
-- index.html : site web complet, responsive, avec onglets
-- assets/affiche-msj-expert.jpg : affiche fournie
+L'accueil du groupe est index.html.
+Chaque univers a sa propre page : expert.html, assurance.html,
+domiciliation.html. MSJ DOMICILIATION est un projet, non encore créé.
 
-NAVIGATION
-- MSJ EXPERT : page d'accueil et affiche cliquable pour agrandir
-- MSJ ASSURANCE : page de présentation
-- MSJ DOMICILIATION : page de présentation
-
-COMMENT L'OUVRIR
-Double-cliquez sur index.html dans le dossier extrait.
-L'affiche doit rester dans le sous-dossier assets/.
-
-COMMENT LE METTRE EN LIGNE
-Envoyez index.html et le dossier assets/ sur votre hébergement web.
-Les trois onglets fonctionnent sans installation complémentaire.
+Conservez tous les fichiers HTML et le dossier assets ensemble.
+Aucune installation de dépendance ni compilation n'est nécessaire.
+Pour le développement : python3 -m http.server 8000 --bind 127.0.0.1
 
 CONTACT
-Les liens de contact ouvrent la messagerie du visiteur vers
-cabinet@msjexpert.fr. Aucun formulaire ni paiement en ligne
-n'est mis en place.
+contact.html prépare un e-mail pour cabinet@msjexpert.fr.
+Le visiteur doit l'envoyer depuis sa propre messagerie.
+Il peut aussi copier ou télécharger le message préparé.
+Aucun message n'est envoyé automatiquement par le site.
 
-A CONFIRMER AVANT PUBLICATION
-1. Validation des informations et tarifs de l'affiche.
-2. Texte définitif, garanties et tarifs MSJ ASSURANCE.
-3. Adresse de domiciliation agréée, modalités et tarifs
-   MSJ DOMICILIATION.
-4. Mentions légales, politique de confidentialité, SIREN/SIRET,
-   conditions particulières si nécessaires.
-5. Vérifier que cabinet@msjexpert.fr et www.msjexpert.fr sont exacts.
+MISE EN LIGNE
+GitHub Pages : branche main, dossier / (root).
+Les mises à jour de main déclenchent une nouvelle publication.
 
-Le design, le contenu et les couleurs peuvent être personnalisés.
+PERSONNALISATION
+Textes : fichiers .html de chaque page.
+Style : assets/site.css.
+Interactions : assets/site.js et assets/contact.js.
+Provenance des visuels : assets/CREDITS.txt.
+Instructions complètes : README.md.
+
+Les coordonnées proviennent de la base fournie. Les informations
+légales et professionnelles restant à compléter sont précisées
+dans informations.html. Les visuels d'ambiance sont illustratifs.

@@ -1,0 +1,18 @@
+VISUELS MSJ GROUP
+================
+
+hero-group.webp — architecture contemporaine, lumière naturelle.
+expert.webp — carnet et espace de travail.
+assurance.webp — maison miniature sous une cloche de verre.
+domiciliation.webp — espace d'accueil de bureaux.
+
+Ces quatre illustrations originales ont été générées avec l'outil de
+création d'images OpenAI pour la refonte de ce site MSJ GROUP, puis
+encodées au format WebP pour limiter leur poids.
+Dimensions : 1536 × 1024 pixels pour chaque visuel.
+Elles sont illustratives et ne représentent pas les locaux, l'équipe,
+les partenaires ou une adresse de domiciliation réelle de MSJ GROUP.
+Aucune police, photographie tierce ou logo de tiers n'est intégré.
+
+affiche-msj-expert.jpg — document d'origine fourni par l'utilisateur dans
+l'archive MSJ-site-web-complet.zip ; conservé sans modification.

@@ -3,7 +3,9 @@ MSJ GROUP — SITE INTERNET
 
 L'accueil du groupe est index.html.
 Chaque univers a sa propre page : expert.html, assurance.html,
-domiciliation.html. MSJ DOMICILIATION est un projet, non encore créé.
+gestion.html et domiciliation.html.
+MSJ GESTION propose un secrétariat externalisé sur devis.
+La nouvelle affiche Expert est proposée en JPG et PDF.
 
 Conservez tous les fichiers HTML et le dossier assets ensemble.
 Aucune installation de dépendance ni compilation n'est nécessaire.

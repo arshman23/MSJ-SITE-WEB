@@ -65,6 +65,7 @@ if (document.body.dataset.page === "home") {
   const legacyPages = {
     expert: "expert.html",
     assurance: "assurance.html",
+    gestion: "gestion.html",
     domiciliation: "domiciliation.html",
   };
   const redirectLegacyLink = () => {

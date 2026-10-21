@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#143d31" />
     <meta
       name="description"
-      content="Contactez MSJ GROUP pour votre projet de création d’entreprise, vos besoins en assurance ou une question sur le futur univers domiciliation."
+      content="Contactez MSJ GROUP pour votre création d’entreprise, vos besoins d’assurance, votre gestion administrative ou votre domiciliation."
     />
     <title>Contact — Parlons de votre projet | MSJ GROUP</title>
     <meta
@@ -15,7 +15,7 @@
     />
     <meta
       property="og:description"
-      content="Contactez MSJ GROUP pour votre projet de création d’entreprise, vos besoins en assurance ou une question sur le futur univers domiciliation."
+      content="Contactez MSJ GROUP pour votre création d’entreprise, vos besoins d’assurance, votre gestion administrative ou votre domiciliation."
     />
     <link
       rel="canonical"
@@ -32,9 +32,9 @@
       content="https://arshman23.github.io/MSJ-SITE-WEB/assets/hero-group.webp"
     />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="assets/site.css" />
-    <script src="assets/site.js" defer></script>
-    <script src="assets/contact.js" defer></script>
+    <link rel="stylesheet" href="assets/site.css?v=20261021" />
+    <script src="assets/site.js?v=20261021" defer=""></script>
+    <script src="assets/contact.js?v=20261021" defer=""></script>
   </head>
   <body data-page="contact">
     <a class="skip-link" href="#main-content">Aller au contenu</a>
@@ -59,8 +59,8 @@
             <path
               d="M3 50V17l14 12 9-16 9 16 14-12v33H36V34L26 51 16 34v16Z"
               fill="currentColor"
-            />
-            <path d="m26 1 4 6-4 6-4-6Z" fill="#ad8849" /></svg
+            ></path>
+            <path d="m26 1 4 6-4 6-4-6Z" fill="#ad8849"></path></svg
           ><span
             ><span class="brand-name">MSJ <b>GROUP</b></span
             ><span class="brand-caption"
@@ -71,6 +71,7 @@
         <nav class="nav" id="primary-nav" aria-label="Navigation principale">
           <a href="index.html">Le groupe</a><a href="expert.html">Expert</a
           ><a href="assurance.html">Assurance</a
+          ><a href="gestion.html">Gestion</a
           ><a href="domiciliation.html">Domiciliation</a
           ><a href="contact.html" aria-current="page">Contact</a>
         </nav>
@@ -86,7 +87,7 @@
             stroke-width="1.5"
             aria-hidden="true"
           >
-            <path d="M5 19 19 5M5 5h14v14" /></svg
+            <path d="M5 19 19 5M5 5h14v14"></path></svg
         ></a>
         <button
           class="menu-toggle"
@@ -114,7 +115,7 @@
               Une question,<br />un projet, <em>un échange.</em>
             </h1>
             <p class="lead">
-              Création d’entreprise, assurance ou question sur notre projet de
+              Création d’entreprise, assurance, gestion administrative ou
               domiciliation : décrivez votre besoin pour orienter votre demande
               vers le bon univers.
             </p>
@@ -127,14 +128,18 @@
                 Un point de contact commun pour vous orienter vers le bon
                 univers MSJ.
               </p>
-              <button class="btn btn-secondary" type="button" data-copy-email>
+              <button
+                class="btn btn-secondary"
+                type="button"
+                data-copy-email=""
+              >
                 Copier l’adresse e-mail
               </button>
               <p
                 id="email-copy-status"
                 class="form-status"
                 role="status"
-                data-copy-status
+                data-copy-status=""
               ></p>
               <h3>Notre adresse de contact</h3>
               <p>9 avenue des Érables<br />95400 Villiers-le-Bel</p>
@@ -168,7 +173,7 @@
                     type="text"
                     autocomplete="name"
                     maxlength="100"
-                    required
+                    required=""
                   />
                 </div>
                 <div class="field">
@@ -181,7 +186,7 @@
                     type="email"
                     autocomplete="email"
                     maxlength="254"
-                    required
+                    required=""
                   />
                 </div>
               </div>
@@ -189,7 +194,7 @@
                 <label for="contact-service"
                   >Votre besoin <span aria-hidden="true">*</span></label
                 >
-                <select id="contact-service" name="service" required>
+                <select id="contact-service" name="service" required="">
                   <option value="group">
                     MSJ GROUP — Je souhaite être orienté
                   </option>
@@ -197,8 +202,11 @@
                     MSJ EXPERT — Création et accompagnement
                   </option>
                   <option value="assurance">MSJ ASSURANCE — Assurance</option>
+                  <option value="gestion">
+                    MSJ GESTION — Administration &amp; secrétariat
+                  </option>
                   <option value="domiciliation">
-                    MSJ DOMICILIATION — Projet à venir
+                    MSJ DOMICILIATION — Domiciliation d’entreprise
                   </option>
                 </select>
               </div>
@@ -212,7 +220,7 @@
                   rows="6"
                   maxlength="2000"
                   placeholder="Votre activité, l’étape de votre projet et ce dont vous avez besoin…"
-                  required
+                  required=""
                 ></textarea>
               </div>
               <p class="form-note">
@@ -235,7 +243,7 @@
                   stroke-width="1.5"
                   aria-hidden="true"
                 >
-                  <path d="M5 19 19 5M5 5h14v14" />
+                  <path d="M5 19 19 5M5 5h14v14"></path>
                 </svg>
               </button>
             </form>
@@ -246,7 +254,7 @@
                 <a href="mailto:cabinet@msjexpert.fr">cabinet@msjexpert.fr</a>.
               </p></noscript
             >
-            <div id="contact-result" class="message-preview" hidden>
+            <div id="contact-result" class="message-preview" hidden="">
               <h3 id="contact-result-title" tabindex="-1">
                 Votre message est prêt à être ouvert
               </h3>
@@ -269,7 +277,7 @@
                   stroke-width="1.5"
                   aria-hidden="true"
                 >
-                  <path d="M5 19 19 5M5 5h14v14" /></svg
+                  <path d="M5 19 19 5M5 5h14v14"></path></svg
               ></a>
               <p class="form-note">
                 Si aucune messagerie ne s’ouvre, copiez le message ou
@@ -298,7 +306,7 @@
                 class="preview-text"
                 id="message-preview"
                 rows="12"
-                readonly
+                readonly=""
               ></textarea>
             </div>
           </div>
@@ -318,8 +326,8 @@
               <path
                 d="M3 50V17l14 12 9-16 9 16 14-12v33H36V34L26 51 16 34v16Z"
                 fill="currentColor"
-              />
-              <path d="m26 1 4 6-4 6-4-6Z" fill="#ad8849" /></svg
+              ></path>
+              <path d="m26 1 4 6-4 6-4-6Z" fill="#ad8849"></path></svg
             ><span
               ><span class="brand-name">MSJ <b>GROUP</b></span
               ><span class="brand-caption"
@@ -337,7 +345,8 @@
           <div class="footer-links">
             <a href="expert.html">MSJ EXPERT</a
             ><a href="assurance.html">MSJ ASSURANCE</a
-            ><a href="domiciliation.html">MSJ DOMICILIATION · À venir</a
+            ><a href="gestion.html">MSJ GESTION</a
+            ><a href="domiciliation.html">MSJ DOMICILIATION</a
             ><a href="contact.html">Contacter le groupe</a>
           </div>
         </div>
@@ -351,7 +360,7 @@
         </div>
       </div>
       <div class="container footer-bottom">
-        <span>© <span data-year>2026</span> MSJ GROUP</span>
+        <span>© <span data-year="">2026</span> MSJ GROUP</span>
         <div>
           <a href="informations.html">Informations légales</a
           ><a href="informations.html#confidentialite">Confidentialité</a

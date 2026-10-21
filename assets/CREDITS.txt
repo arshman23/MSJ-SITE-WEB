@@ -16,3 +16,26 @@ Aucune police, photographie tierce ou logo de tiers n'est intégré.
 
 affiche-msj-expert.jpg — document d'origine fourni par l'utilisateur dans
 l'archive MSJ-site-web-complet.zip ; conservé sans modification.
+
+AFFICHE MSJ EXPERT — NOUVELLE IDENTITÉ
+=====================================
+
+affiche-msj-expert-v2.jpg et affiche-msj-expert-v2.pdf : nouvelle affiche
+réalisée avec ImageGen à partir de l’affiche d’origine et du logo M
+du site MSJ GROUP. Image native : 1024 × 1536 pixels. Le PDF contient
+la même affiche raster, sans gain de résolution. Le document source
+affiche-msj-expert.jpg reste conservé sans modification.
+
+Contenu mis à jour : création SAS/SASU/SARL/EURL 960 € TTC (800 € HT),
+création SCI 1 080 € TTC (900 € HT), partenariat Qonto commun centré
+sous les deux offres de création, suivi d’entreprise 300 € HT / mois
+(360 € TTC / mois), jusqu’à 5 salariés, business plan sur 5 ans à
+660 € TTC, modifications de société et dissolutions sans tarif ajouté.
+L’illustration du bureau est générée ; elle ne représente pas des
+locaux MSJ réels. Aucun compteur client, avis ou certificat ajouté.
+
+Prestations de suivi conservées : gestion de la paie et du social,
+comptabilité dématérialisée, déclarations fiscales et conseil.
+Prestations du business plan conservées : étude de marché et analyse
+sectorielle, prévisions financières sur 5 ans, argumentaire pour les
+financeurs. Correction ciblée effectuée avec ImageGen.

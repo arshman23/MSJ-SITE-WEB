@@ -7,6 +7,7 @@
     group: "MSJ GROUP — demande générale",
     expert: "MSJ EXPERT",
     assurance: "MSJ ASSURANCE",
+    gestion: "MSJ GESTION",
     domiciliation: "MSJ DOMICILIATION",
   };
 

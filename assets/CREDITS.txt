@@ -50,3 +50,19 @@ du visuel expert.webp, puis encodée au format WebP pour le site.
 Dimensions : 1536 × 1024 pixels. Aucun texte ou renseignement personnel
 lisible, aucune marque tierce. Cette scène illustrative ne représente
 pas les locaux ou des dossiers réels de MSJ GROUP.
+
+gestion-administrative.webp — copie identique du visuel original gestion.webp,
+utilisée sur l’accueil et la page Gestion avec une nouvelle URL pour renouveler
+les caches. La provenance et les dimensions restent celles décrites ci-dessus.
+
+AFFICHE MSJ EXPERT — VERSION TTC EN PREMIER
+=========================================
+
+affiche-msj-expert-v3.jpg et affiche-msj-expert-v3.pdf : édition ciblée
+avec ImageGen de la v2 pour afficher chaque montant TTC en grand, puis
+son montant HT au-dessous. Création société : 960 € TTC / 800 € HT ;
+SCI : 1 080 € TTC / 900 € HT ; suivi : 360 € TTC / mois puis
+300 € HT / mois, jusqu’à 5 salariés ; business plan : 660 € TTC puis
+550 € HT. Tous les autres contenus de l’affiche sont conservés.
+Image native 1024 × 1536 pixels. Le PDF contient la même image raster.
+Les versions originales et v2 restent conservées.

@@ -27,6 +27,8 @@ Le serveur sert directement les fichiers HTML, CSS, JavaScript et images. Il doi
 - `assets/contact.js` : validation et préparation du contact.
 - `assets/CREDITS.txt` : provenance des visuels.
 
+Les prix sont présentés TTC en principal, puis HT en dessous (TVA à 20 % pour les tarifs affichés).
+
 Les pages sont des fichiers HTML autonomes, sans dépendance distante. Les en-têtes et pieds de page communs doivent rester cohérents lors d’une modification. Tous les chemins usuels sont relatifs pour fonctionner dans le sous-dossier GitHub Pages.
 
 ## Contact

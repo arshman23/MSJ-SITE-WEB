@@ -32,7 +32,7 @@
       content="https://arshman23.github.io/MSJ-SITE-WEB/assets/hero-group.webp"
     />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="assets/site.css?v=20261021" />
+    <link rel="stylesheet" href="assets/site.css?v=20261021-2" />
     <script src="assets/site.js?v=20261021" defer=""></script>
   </head>
   <body data-page="expert">
@@ -166,7 +166,10 @@
             </p>
           </div>
           <div class="offer-grid expert-offers">
-            <article class="offer">
+            <article
+              class="offer offer-creation"
+              aria-describedby="partner-qonto"
+            >
               <span class="eyebrow">Création · Société commerciale</span>
               <h3>Création<br />de société</h3>
               <p class="offer-formats">SAS · SASU · SARL · EURL</p>
@@ -192,7 +195,10 @@
                   <path d="M5 19 19 5M5 5h14v14"></path></svg
               ></a>
             </article>
-            <article class="offer">
+            <article
+              class="offer offer-creation"
+              aria-describedby="partner-qonto"
+            >
               <span class="eyebrow">Création · Société civile</span>
               <h3>Création<br />de SCI</h3>
               <p class="offer-formats">Société civile immobilière</p>
@@ -220,15 +226,13 @@
                   <path d="M5 19 19 5M5 5h14v14"></path></svg
               ></a>
             </article>
-            <div class="partner-note">
-              <span class="partner-label"
-                >Un partenariat pour vos deux formules de création</span
-              ><strong class="partner-name">Qonto</strong>
-              <p>SAS, SASU, SARL, EURL et SCI</p>
-            </div>
-            <article class="offer featured">
+            <article
+              class="offer offer-followup"
+              aria-describedby="partner-pennylane"
+            >
               <span class="eyebrow">Accompagnement</span>
               <h3>Suivi complet<br />d’entreprise</h3>
+              <p class="offer-formats">Paie, comptabilité &amp; fiscalité</p>
               <p class="price">300 € <small>HT / mois</small></p>
               <p class="price-note">360 € TTC / mois · Jusqu’à 5 salariés</p>
               <ul class="check-list">
@@ -236,7 +240,7 @@
                 <li>Comptabilité dématérialisée</li>
                 <li>Déclarations fiscales et conseil</li>
               </ul>
-              <a class="btn btn-light" href="contact.html?service=expert"
+              <a class="btn btn-primary" href="contact.html?service=expert"
                 >Demander un devis
                 <svg
                   class="link-arrow"
@@ -251,9 +255,10 @@
                   <path d="M5 19 19 5M5 5h14v14"></path></svg
               ></a>
             </article>
-            <article class="offer">
+            <article class="offer offer-business">
               <span class="eyebrow">Prévisionnel</span>
               <h3>Business plan<br />sur 5 ans</h3>
+              <p class="offer-formats">Étude, prévisions &amp; financement</p>
               <p class="price">660 € <small>TTC</small></p>
               <p class="price-note">Bilan prévisionnel sur 5 ans</p>
               <ul class="check-list">
@@ -276,6 +281,24 @@
                   <path d="M5 19 19 5M5 5h14v14"></path></svg
               ></a>
             </article>
+            <aside
+              class="partner-note partner-qonto"
+              id="partner-qonto"
+              aria-label="Partenaire des deux créations"
+            >
+              <span class="partner-label">Votre partenaire création</span>
+              <strong class="partner-name">Qonto</strong>
+              <p>SAS, SASU, SARL, EURL et SCI</p>
+            </aside>
+            <aside
+              class="partner-note partner-pennylane"
+              id="partner-pennylane"
+              aria-label="Partenaire du suivi d’entreprise"
+            >
+              <span class="partner-label">Votre partenaire suivi</span>
+              <strong class="partner-name">Pennylane</strong>
+              <p>Suivi complet d’entreprise</p>
+            </aside>
           </div>
           <p class="fineprint">
             À confirmer par devis selon votre situation. Les modalités, frais
